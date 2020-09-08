@@ -17,7 +17,7 @@ Route::get('/', function () {
     return redirect()->route('login.index');
 });
 
-Route::get('/login','LoginController@index');
+Route::get('/login','LoginController@index')->name('login.index');
 Route::post('/login','LoginController@verify');
 
 
@@ -26,6 +26,9 @@ Route::middleware(['sess'])->group(function(){
     Route::group(['middleware'=>['type']], function(){
 
         Route::get('/admin','AdminController@index')->name('admin.index');
+        
+
+        Route::get('/employee','EmployeeController@index')->name('employee.index');
 
     });
 });
