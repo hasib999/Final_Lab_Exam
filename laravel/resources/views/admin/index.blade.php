@@ -8,6 +8,7 @@
 <body>
     <fieldset>
         <legend>Admin HomePage</legend>
+        <a href="/admin/register">Register</a><br>
     </fieldset>
 </body>
 </html>
