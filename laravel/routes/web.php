@@ -28,9 +28,9 @@ Route::middleware(['sess'])->group(function(){
 
         Route::get('/admin','AdminController@index')->name('admin.index');
         Route::get('/admin/register','AdminController@reg')->name('admin/register.index');
+        Route::post('/admin/register','AdminController@reg');
 
-
-        Route::get('/employee','EmployeeController@index')->name('employee.index');
+        //Route::get('/employee','EmployeeController@index')->name('employee.index');
 
     });
 });

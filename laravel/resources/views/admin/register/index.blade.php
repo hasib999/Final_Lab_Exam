@@ -10,11 +10,17 @@
         <legend>
             Register New Employer 
         </legend>
-        <input type="text" placeholder="Name" name="name">
-        <input type="text" placeholder="company name" name="cname">
-        <input type="text" placeholder="Contact no" name="mobile">
-        <input type="text" placeholder="username" name="username">
-        <input type="password" placeholder="Password" name="password">
+        <form method="POST">
+            @csrf
+            <input type="text" placeholder="username" name="username"><br><br>
+            <input type="password" placeholder="Password" name="password"><br><br>
+            <input type="text" placeholder="Name" name="name"><br><br>
+            <input type="text" placeholder="company name" name="cname"><br><br>
+            <input type="text" placeholder="Contact no" name="mobile"><br><br>
+            <input type="submit" value="Add">&nbsp;&nbsp;
+        </form>
+        
+        <a href="/logout">Logout</a>
     </fieldset>
 </body>
 </html>

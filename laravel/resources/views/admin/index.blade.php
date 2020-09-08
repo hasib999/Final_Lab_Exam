@@ -9,6 +9,7 @@
     <fieldset>
         <legend>Admin HomePage</legend>
         <a href="/admin/register">Register</a><br>
+        <a href="/logout">Logout</a>
     </fieldset>
 </body>
 </html>
