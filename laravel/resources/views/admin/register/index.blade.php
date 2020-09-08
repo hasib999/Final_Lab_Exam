@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Register</title>
 </head>
 <body>
     <fieldset>
@@ -20,7 +20,10 @@
             <input type="submit" value="Add">&nbsp;&nbsp;
         </form>
         
-        <a href="/logout">Logout</a>
+        <a href="/logout">Logout</a><br>
+        @foreach($errors->all() as $err)
+		{{$err}} <br>
+    	@endforeach
     </fieldset>
 </body>
 </html>

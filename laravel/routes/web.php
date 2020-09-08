@@ -27,10 +27,25 @@ Route::middleware(['sess'])->group(function(){
     Route::group(['middleware'=>['type']], function(){
 
         Route::get('/admin','AdminController@index')->name('admin.index');
-        Route::get('/admin/register','AdminController@reg')->name('admin/register.index');
-        Route::post('/admin/register','AdminController@reg');
 
-        //Route::get('/employee','EmployeeController@index')->name('employee.index');
+        Route::get('/admin/register','AdminController@reg')->name('admin/register.index');
+        Route::post('/admin/register','AdminController@insert');
+
+        Route::get('/admin/edit/{id}','AdminController@edit')->name('admin.edit');
+        Route::post('/admin/edit/{id}','AdminController@update');
+
+        Route::get('/admin/delete/{id}','AdminController@delete')->name('admin.delete');
+        Route::post('/admin/delete/{id}','AdminController@destroy');
+
+
+        Route::get('/employee','EmployeeController@index')->name('employee.index');
+        Route::get('/employee/addJob','EmployeeController@addNewJob')->name('employee.addJob');
+        Route::post('/employee/addJob','EmployeeController@add');
+
+        Route::get('/employee/editJob/{id}','EmployeeController@editJob')->name('employee.editJob');
+        Route::get('/employee/deleteJob/{id}','EmployeeController@deleteJob')->name('employee.deleteJob');
+
+
 
     });
 });

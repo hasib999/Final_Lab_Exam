@@ -17,7 +17,12 @@ class VerifyType
     {
         if($request->session()->get('type') == "admin"){
             return $next($request);
-        }else{
+        }
+        elseif($request->session()->get('type') == "employee")
+        {
+            return $next($request);
+        }
+        else{
             return redirect('/login');
         }
         
