@@ -43,7 +43,10 @@ Route::middleware(['sess'])->group(function(){
         Route::post('/employee/addJob','EmployeeController@add');
 
         Route::get('/employee/editJob/{id}','EmployeeController@editJob')->name('employee.editJob');
+        Route::post('/employee/editJob/{id}','EmployeeController@update');
+
         Route::get('/employee/deleteJob/{id}','EmployeeController@deleteJob')->name('employee.deleteJob');
+        Route::post('/employee/deleteJob/{id}','EmployeeController@destroy');
 
 
 

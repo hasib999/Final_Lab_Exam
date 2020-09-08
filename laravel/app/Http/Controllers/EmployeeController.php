@@ -43,9 +43,31 @@ class EmployeeController extends Controller
         $info = DB::table('job')->where('id','=',$id)->get() ;
         return view('employee.editJob')->with('info',$info);
     }
+    public function update($id,Request $request)
+    {
+        $validate = Validator:: make($request->all(),[
+            'cname' => 'required',
+            'title' => 'required',
+            'location' =>'required',
+            'salary' =>'required',
+        ]);
+        if($validate->fails())
+        {
+            return back()->with('errors',$validate->errors())->withInput();
+        }
+        DB::table('job')->where('id',$id)->update(['cname'=>$request->cname,'title'=>$request->title,'location'=>$request->location,'salary'=>$request->salary]);
+
+        return redirect()->route('employee.index');
+    }
 
     public function deleteJob($id)
     {
-        return view('employee.deleteJob');
+        $info = DB::table('job')->where('id','=',$id)->get() ;
+        return view('employee.deleteJob')->with('info',$info);
+    }
+    public function destroy($id)
+    {
+        DB::table('job')->where('id',$id)->delete();
+        return redirect()->route('employee.index');
     }
 }
